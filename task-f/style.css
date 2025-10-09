@@ -11,11 +11,11 @@ Date: 2025-10-09
     --border: #e0e0e0;
 }
 
-/* Base page styles (rem font sizing, color, background) */
 html,
 body {
     height: 100%;
 }
+
 body {
     margin: 0;
     background: var(--page-bg);
@@ -27,76 +27,130 @@ body {
         Roboto,
         Arial,
         sans-serif;
-    font-size: var(--base-size); /* rem */
+    font-size: var(--base-size);
 }
 
-/* Top spacing uses rem (explicit requirement) */
+/* Header */
 .site-header {
-    padding-top: 2rem; /* rem */
-    padding-bottom: 1rem; /* rem */
+    padding-top: 2rem;
+    padding-bottom: 1rem;
     background: var(--brand);
     color: #fff;
 }
+
 .site-header h1 {
-    font-size: var(--h1-size); /* rem */
+    font-size: var(--h1-size);
     margin: 0;
-    text-align: center; /* centered title */
+    text-align: center;
 }
 
-/* Left & right empty space 15% (content width ~70%) */
+/* Content container with side margins */
 .content {
-    margin-left: 15%; /* % */
-    margin-right: 15%; /* % */
-    padding-top: 1rem; /* rem */
-    padding-bottom: 2rem; /* rem */
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
 }
 
-/* Student info block */
-.student-info {
-    background: #fff;
-    border: 1px solid var(--border); /* px */
-    border-radius: var(--radius); /* px */
-    padding: 0.75rem 1rem; /* rem */
-    margin: 0 0 1rem 0; /* rem */
+/* --- NEW: top row split (50% + 50%) --- */
+.top-grid {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
+
+.student-info,
+.controls {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.student-info {
+    flex: 1 1 30%;
+}
+
+.controls {
+    flex: 1 1 70%;
+}
+
 .student-info p {
     margin: 0;
 }
+
 .student-info p + p {
-    margin-top: 0.5rem; /* rem */
+    margin-top: 0.5rem;
 }
-/* Controls */
-.controls,
-.addCourseForm,
+
+.controls-title,
+.student-info-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.form-row input[type="text"] {
+    flex: 1 1 auto;
+    padding: 0.45rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
 .days-group {
-    background: #fff;
-    border: 1px solid var(--border); /* px */
-    border-radius: var(--radius); /* px */
-    padding: 0.75rem 1rem; /* rem */
-    margin: 0 0 1rem 0; /* rem */
+    margin: 0.5rem 0 0.75rem;
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
-.controls p {
-    margin: 0;
+
+.days-group legend {
+    padding: 0 0.25rem;
+    font-weight: 600;
+    color: #334155;
 }
-.controls p + p {
-    margin-top: 0.5rem; /* rem */
+
+.btn {
+    padding: 0.45rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #f8fafc;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #eef2f7;
+}
+
+.btn-secondary {
+    background: #ffffff;
 }
 
 /* Table container */
 .table-wrap {
     background: #fff;
-    border: 1px solid var(--border); /* px */
-    border-radius: var(--radius); /* px */
-    padding: 1rem; /* rem */
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
     overflow-x: auto;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
 /* Table */
 .table {
-    width: 100%; /* % */
+    width: 100%;
     border-collapse: collapse;
-    font-size: 1rem; /* rem */
+    font-size: 1rem;
 }
 
 /* Header cells */
@@ -104,14 +158,14 @@ body {
     background: var(--brand);
     color: #fff;
     text-align: left;
-    padding: 0.75rem; /* rem */
-    border-bottom: 1px solid var(--border); /* px */
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border);
 }
 
 /* Body cells */
 .table tbody td {
-    padding: 0.6rem 0.75rem; /* rem */
-    border-bottom: 1px solid var(--border); /* px */
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
 }
 
 /* Alternate row color */
@@ -119,35 +173,43 @@ body {
     background: var(--table-alt);
 }
 
-/* Column widths:
-   - First column (Course) wider
-   - Other columns share remaining space
-*/
+/* Column widths: 40% + 12%*5 = 100% */
 .table thead th:nth-child(1),
 .table tbody td:nth-child(1) {
-    width: 35%;
-}
-.table thead th:nth-child(n + 6),
-.table tbody td:nth-child(n + 6) {
-    width: 15%;
+    width: 40%;
 }
 
-/* Center the day columns (Mon-Fri) */
 .table thead th:nth-child(n + 2),
 .table tbody td:nth-child(n + 2) {
+    width: 12%;
     text-align: center;
 }
-/* ≤ 768px: margins 5%, show only student-info + table */
+
+/* Small screens: stack the top blocks */
+@media (max-width: 860px) {
+    .content {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .top-grid {
+        flex-direction: column;
+    }
+}
+
+/* ≤ 768px: margins 5% */
 @media (max-width: 768px) {
     .content {
         margin-left: 5%;
         margin-right: 5%;
     }
+
     .site-header,
     .intro,
     .other-content {
         display: none;
     }
+
     .student-info,
     .table-wrap {
         display: block;
@@ -160,6 +222,7 @@ body {
         margin-left: 1%;
         margin-right: 1%;
     }
+
     .student-info {
         display: none;
     }
