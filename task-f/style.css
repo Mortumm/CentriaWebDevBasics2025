@@ -3,29 +3,12 @@ Author: Nuno Mendes
 Date: 2025-10-09
 */
 
-/* COLOR GUIDELINES
-   - Page background: very light gray (#f6f8fb)
-   - Main text: dark gray (#1f2937)
-   - Header background: deep blue (#273e73), text white
-   - Table header row: same deep blue, text white
-   - Table rows: alternate white (#fff) / light blue (#eef3ff)
-   - Borders: light gray (#d0d7e2)
-*/
-
 :root {
-    /* Typographic scale via rem for easy scaling */
-    --base-size: 1rem;
-    --h1-size: 1.6rem;
-
-    /* Colors */
-    --page-bg: #f6f8fb;
-    --text: #1f2937;
-    --brand: #273e73;
-    --table-alt: #eef3ff;
-    --border: #d0d7e2;
-
-    /* Radius in px */
-    --radius: 8px;
+    --page-bg: #fcfdfc;
+    --text: #2a2a2a;
+    --brand: #6c4f8d;
+    --table-alt: #f9f5ff;
+    --border: #e0e0e0;
 }
 
 /* Base page styles (rem font sizing, color, background) */
@@ -80,6 +63,22 @@ body {
     margin: 0;
 }
 .student-info p + p {
+    margin-top: 0.5rem; /* rem */
+}
+/* Controls */
+.controls,
+.addCourseForm,
+.days-group {
+    background: #fff;
+    border: 1px solid var(--border); /* px */
+    border-radius: var(--radius); /* px */
+    padding: 0.75rem 1rem; /* rem */
+    margin: 0 0 1rem 0; /* rem */
+}
+.controls p {
+    margin: 0;
+}
+.controls p + p {
     margin-top: 0.5rem; /* rem */
 }
 
