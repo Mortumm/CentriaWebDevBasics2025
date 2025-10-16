@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     const row = document.createElement("tr");
-
     const nameCell = document.createElement("td");
     nameCell.textContent = courseName;
     row.appendChild(nameCell);
@@ -37,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     table.appendChild(row);
-
     form.reset();
     courseInput.focus();
   });
