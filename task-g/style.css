@@ -51,14 +51,8 @@ body {
   padding-bottom: 2rem;
 }
 
-/* --- NEW: top row split (50% + 50%) --- */
-.top-grid {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
 
-.student-info,
+.userreg,
 .controls {
   background: #fff;
   border: 1px solid var(--border);
@@ -67,19 +61,15 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
-.student-info {
-  flex: 1 1 30%;
+.userreg {
+  flex: 1 1 80%;
 }
 
-.controls {
-  flex: 1 1 70%;
-}
-
-.student-info p {
+.userreg p {
   margin: 0;
 }
 
-.student-info p+p {
+.userreg p+p {
   margin-top: 0.5rem;
 }
 
@@ -103,7 +93,11 @@ body {
   border-radius: 6px;
 }
 
-.days-group {
+.fullName
+.email
+.phone
+.birthDate
+.checkbox {
   margin: 0.5rem 0 0.75rem;
   border: 1px dashed var(--border);
   border-radius: 6px;
@@ -147,6 +141,7 @@ body {
 
 /* Table */
 .table {
+  padding-top: 1rem 1rem;
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
@@ -222,7 +217,7 @@ body {
     margin-right: 1%;
   }
 
-  .student-info {
+  .userreg {
     display: none;
   }
 }

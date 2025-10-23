@@ -19,47 +19,61 @@
   </header>
 
   <main class="content">
-    <!-- Top row split into two blocks -->
-    <div class="top-grid">
-      <!-- Student info (30%) -->
-      <section class="student-info" aria-label="Student information">
-        <h2 class="student-info-title">Student Information</h2>
-        <p><span class="student-name">Your Name</span></p>
-        <p><span class="student-group">Group number</span></p>
-      </section>
+      <!-- New user -->
+    <section class="userreg" aria-label="User Registration">
+      <h2 class="controls-title">User Registration</h2>
 
-      <!-- Controls (70%): add course + day marks -->
-      <section class="controls" aria-label="Add course row">
-        <h2 class="controls-title">Add Course</h2>
+      <form id="userForm">
+        <input type="hidden" id="timestamp" name="timestamp">
 
-        <form id="addCourseForm">
-          <div class="form-row">
-            <label for="courseName">Course name</label>
-            <input id="courseName" name="courseName" type="text" required placeholder="e.g., Web Development Basics">
-          </div>
+        <div class="form-row">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" required>
+          <span id="fullNameError" class="error"></span>
+        </div>
 
-          <fieldset class="days-group">
-            <legend>Days (yes = &#9989;, no = &#10060;)</legend>
-            <label><input type="checkbox" name="day" value="Tue"> Tue</label>
-            <label><input type="checkbox" name="day" value="Thu"> Thu</label>
-          </fieldset>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+          <span id="emailError" class="error"></span>
+        </div>
 
-          <div class="form-row">
-            <button id="addRowBtn" type="submit" class="btn">Add row</button>
-            <button id="clearBtn" type="reset" class="btn btn-secondary">Clear</button>
-          </div>
-        </form>
-      </section>
-    </div>
+        <div class="form-row">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+          <span id="phoneError" class="error"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="birthDate">Birth Date</label>
+          <input type="date" id="birthDate" name="birthDate" required>
+          <span id="birthDateError" class="error"></span>
+        </div>
+
+        <div class="form-row">
+          <label>
+            <input type="checkbox" id="terms" name="terms">
+            I accept the terms
+          </label>
+          <span id="termsError" class="error"></span>
+        </div>
+
+        <div class="form-row">
+          <button type="submit" class="btn">Register</button>
+        </div>
+      </form>
+    </section>
 
     <!-- Table -->
     <div class="table-wrap">
       <table class="table" id="timetable">
         <thead>
           <tr>
-            <th>Course</th>
-            <th>Tue</th>
-            <th>Fri</th>
+            <th>User</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Date of Birth</th>
+            <th>Terms Accepted</th>
           </tr>
         </thead>
         <tbody>

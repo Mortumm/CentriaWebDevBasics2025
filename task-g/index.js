@@ -3,47 +3,75 @@
 // Date: 2025-10-22
 
 document.addEventListener("DOMContentLoaded", () => {
-  const CHECK = '✅';
-  const CROSS = '❌';
-  const dayOrder = ["Fri", "Mon"];
+    const form = document.getElementById("userForm");
+    const table = document.getElementById("timetable").querySelector("tbody");
 
-  const form = document.getElementById("addCourseForm");
-  const table = document.getElementById("timetable").querySelector("tbody");
-  const courseInput = document.getElementById("courseName");
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
+        // Clear previous errors
+        document.querySelectorAll(".error").forEach(el => el.textContent = "");
 
-    const courseName = courseInput.value.trim();
-    if (!courseName) return;
+        const timestamp = new Date().toISOString();
+        document.getElementById("timestamp").value = timestamp;
 
-    // Collect checked days into a Set
-    const checkedDays = new Set(
-      Array.from(form.querySelectorAll('input[name="day"]:checked'))
-        .map((cb) => cb.value)
-    );
+        const fullName = form.fullName.value.trim();
+        const email = form.email.value.trim();
+        const phone = form.phone.value.trim();
+        const birthDate = form.birthDate.value;
+        const termsAccepted = form.terms.checked;
 
-    // Create new table row
-    const row = document.createElement("tr");
+        let isValid = true;
 
-    // Course cell
-    const nameCell = document.createElement("td");
-    nameCell.textContent = courseName;
-    row.appendChild(nameCell);
+        // Full Name validation
+        if (fullName.length < 3) {
+            showError("fullName", "Full name must be at least 3 characters.");
+            isValid = false;
+        }
 
-    // Day cells
-    dayOrder.forEach((day) => {
-      const cell = document.createElement("td");
-      cell.textContent = checkedDays.has(day) ? CHECK : CROSS;
-      cell.dataset.day = day;
-      cell.className = "day-cell";
-      row.appendChild(cell);
+        // Email validation, regex done with the help of ChatGPT
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showError("email", "Please enter a valid email address.");
+            isValid = false;
+        }
+
+        // Finnish phone validation, regex done with the help of ChatGPT
+        const finnishPhoneRegex = /^(?:\+358|0)(?:[4-5]\d{1}|50)\d{6,7}$/;
+        if (!finnishPhoneRegex.test(phone)) {
+            showError("phone", "Enter a valid Finnish phone number (e.g. +358401234567 or 0401234567).");
+            isValid = false;
+        }
+
+        // Birth date validation
+        if (!birthDate || new Date(birthDate) >= new Date()) {
+            showError("birthDate", "Birth date must be in the past.");
+            isValid = false;
+        }
+
+        // Terms checkbox
+        if (!termsAccepted) {
+            showError("terms", "You must accept the terms.");
+            isValid = false;
+        }
+
+        if (isValid) {
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+                <td>${fullName}</td>
+                <td>${email}</td>
+                <td>${phone}</td>
+                <td>${birthDate}</td>
+                <td>${termsAccepted ? "✔️" : "❌"}</td>
+            `;
+            table.appendChild(newRow);
+            form.reset();
+        }
     });
 
-    table.appendChild(row);
-
-    // Reset form and focus
-    form.reset();
-    courseInput.focus();
-  });
+    function showError(fieldId, message) {
+        const errorElement = document.getElementById(`${fieldId}Error`);
+        if (errorElement) {
+            errorElement.textContent = message;
+        }
+    }
 });
