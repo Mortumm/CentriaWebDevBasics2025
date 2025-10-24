@@ -23,6 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let isValid = true;
 
+        // Sanitize output to prevent XSS
+        function sanitizeHTML(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+        }
+
         // Full Name validation
         if (fullName.length < 3) {
             showError("fullName", "Full name must be at least 3 characters.");
@@ -57,11 +64,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (isValid) {
             const newRow = document.createElement("tr");
             newRow.innerHTML = `
-                <td>${fullName}</td>
-                <td>${email}</td>
-                <td>${phone}</td>
-                <td>${birthDate}</td>
-                <td>${termsAccepted ? "✔️" : "❌"}</td>
+              <td>${sanitizeHTML(fullName)}</td>
+              <td>${sanitizeHTML(email)}</td>
+              <td>${sanitizeHTML(phone)}</td>
+              <td>${sanitizeHTML(birthDate)}</td>
+              <td>${termsAccepted ? "✔️" : "❌"}</td>
             `;
             table.appendChild(newRow);
             form.reset();
