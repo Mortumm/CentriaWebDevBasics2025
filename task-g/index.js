@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Terms checkbox
         if (!termsAccepted) {
-            showError("terms", "You must accept the terms.");
+            showError("terms", "Terms need to be accepted to continue.");
             isValid = false;
         }
 
