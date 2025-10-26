@@ -12,6 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
         // Clear previous errors
         document.querySelectorAll(".error").forEach(el => el.textContent = "");
 
+        // Sanitize output to prevent XSS
+        function sanitizeHTML(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+        }
+        
         const timestamp = new Date().toISOString();
         document.getElementById("timestamp").value = timestamp;
 
@@ -22,13 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const termsAccepted = form.terms.checked;
 
         let isValid = true;
-
-        // Sanitize output to prevent XSS
-        function sanitizeHTML(str) {
-        const div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML;
-        }
 
         // Full Name validation
         if (fullName.length < 3) {
