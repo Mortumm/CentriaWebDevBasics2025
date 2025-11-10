@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Weekly Timetable</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="index.js"></script>
+</head>
+
+<body class="bg-[#f6f8fb] text-[#1f2937] font-sans text-base">
+  <!--
+    Author: Nuno Mendes
+    Date: 2025-11-09
+  -->
+  <header class="bg-[#273e73] pt-8 pb-4 text-white hidden md:block">
+    <h1 class="text-xl font-bold m-0 text-center">Registeration page</h1>
+  </header>
+
+  <main class="mx-auto pt-4 pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <!-- New user -->
+    <section class="bg-white border border-[#d0d7e2] rounded-lg py-3 px-4 shadow-[0_2px_10px_rgba(0,0,0,0.05)] flex-grow flex-shrink basis-4/5 hidden sm:block" aria-label="User Registration">
+      <h2 class="m-0 mb-2 text-lg">User Registration</h2>
+
+      <form id="userForm">
+        <input type="hidden" id="timestamp" name="timestamp">
+
+        <div class="flex gap-2 items-center my-2">
+          <label for="fullName" class="w-32">Full Name</label>
+          <input type="text" id="fullName" name="fullName" required class="flex-auto p-2 border border-[#d0d7e2] rounded-md">
+          <span id="fullNameError" class="error"></span>
+        </div>
+
+        <div class="flex gap-2 items-center my-2">
+          <label for="email" class="w-32">Email</label>
+          <input type="email" id="email" name="email" required class="flex-auto p-2 border border-[#d0d7e2] rounded-md">
+          <span id="emailError" class="error"></span>
+        </div>
+
+        <div class="flex gap-2 items-center my-2">
+          <label for="phone" class="w-32">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required class="flex-auto p-2 border border-[#d0d7e2] rounded-md">
+          <span id="phoneError" class="error"></span>
+        </div>
+
+        <div class="flex gap-2 items-center my-2">
+          <label for="birthDate" class="w-32">Birth Date</label>
+          <input type="date" id="birthDate" name="birthDate" required class="flex-auto p-2 border border-[#d0d7e2] rounded-md">
+          <span id="birthDateError" class="error"></span>
+        </div>
+
+        <div class="flex gap-2 items-center my-2">
+          <label>
+            <input type="checkbox" id="terms" name="terms">
+            I accept the terms
+          </label>
+          <span id="termsError" class="error"></span>
+        </div>
+
+        <div class="flex gap-2 items-center my-2">
+          <button type="submit" class="py-2 px-3 border border-[#d0d7e2] rounded-md bg-[#f8fafc] cursor-pointer hover:bg-[#eef2f7]">Register</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Table -->
+    <div class="bg-white border border-[#d0d7e2] rounded-lg p-4 overflow-x-auto shadow-[0_2px_10px_rgba(0,0,0,0.05)] mt-4">
+      <table class="w-full border-collapse text-base" id="timetable">
+        <thead>
+          <tr>
+            <th class="bg-[#273e73] text-white text-left p-3 border-b border-[#d0d7e2] w-2/5">User</th>
+            <th class="bg-[#273e73] text-white text-left p-3 border-b border-[#d0d7e2] w-[12%] text-center">Email</th>
+            <th class="bg-[#273e73] text-white text-left p-3 border-b border-[#d0d7e2] w-[12%] text-center">Phone</th>
+            <th class="bg-[#273e73] text-white text-left p-3 border-b border-[#d0d7e2] w-[12%] text-center">Date of Birth</th>
+            <th class="bg-[#273e73] text-white text-left p-3 border-b border-[#d0d7e2] w-[12%] text-center">Terms</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
