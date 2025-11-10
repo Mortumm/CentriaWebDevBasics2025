@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Finnish phone validation, regex done with the help of ChatGPT
     const phoneRegex = /^(?:\+358|0)(?:[4-5]\d{1}|50)\d{6,7}$/;
     if (!phoneRegex.test(phone)) {
-      showError( "phone", "Enter a valid Finnish phone number (e.g. +358401234567 or 0401234567).",);
+      showError( "phone", "Enter a valid Finnish phone number (e.g. +358401234567).",);
       isValid = false;
     }
 
