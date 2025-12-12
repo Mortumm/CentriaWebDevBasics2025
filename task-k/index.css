@@ -668,6 +668,11 @@ footer {
     margin-top: 30px;
 }
 
+.btn-danger {
+    background-color: var(--accent);
+    color: var(--accent);
+}
+
 .thank-you-message {
     text-align: center;
     padding: 40px;
