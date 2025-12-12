@@ -670,7 +670,6 @@ footer {
 
 .btn-danger {
     background-color: var(--accent);
-    color: var(--accent);
 }
 
 .thank-you-message {
