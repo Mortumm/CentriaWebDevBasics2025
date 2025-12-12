@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 
+    Author: Nuno Mendes ATIS22Y
+    Date: 2025-12-12
+    -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - OfficeSpace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo">Office<span>Space</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html">Catalog</a></li>
+                    <li><a href="order.html">Order</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Place Your Order</h2>
+            </div>
+            <div id="thank-you-message" style="display: none;" class="thank-you-message">
+                <p>Thank you for your order! We will contact you shortly to confirm the details.</p>
+            </div>
+            <form id="order-form" class="order-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="space">Space</label>
+                        <select id="space" name="space" required>
+                            <option value="" disabled selected>Select a space</option>
+                            <option value="Executive Private Office">Executive Private Office</option>
+                            <option value="Creative Coworking Space">Creative Coworking Space</option>
+                            <option value="Boardroom Meeting Space">Boardroom Meeting Space</option>
+                            <option value="Startup Team Suite">Startup Team Suite</option>
+                            <option value="Focus Pod">Focus Pod</option>
+                            <option value="Creative Studio">Creative Studio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Start Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">End Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-time">Start Time</label>
+                        <input type="time" id="start-time" name="start-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-time">End Time</label>
+                        <input type="time" id="end-time" name="end-time" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn">Submit Order</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>OfficeSpace</h3>
+                    <p>Workspace solutions for everyone since 2025.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="catalog.html">Catalog</a></li>
+                        <li><a href="order.html">Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Isokatu 69, Kokkola</li>
+                        <li><i class="fas fa-phone"></i> +358 44 666999</li>
+                        <li><i class="fas fa-envelope"></i> info@officespace.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 08.00-17.00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 OfficeSpace.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

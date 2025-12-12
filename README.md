@@ -15,4 +15,6 @@ Links for the assignments are below:
 [Task G](https://mortumm.dev/CentriaWebDevBasics2025/task-g/)   
 [Task H](https://mortumm.dev/CentriaWebDevBasics2025/task-h/)   
 [Task I](https://mortumm.dev/CentriaWebDevBasics2025/task-i/)   
-[Task J](https://mortumm.dev/CentriaWebDevBasics2025/task-j/)
+[Task J](https://mortumm.dev/CentriaWebDevBasics2025/task-j/)   
+[Task K](https://mortumm.dev/CentriaWebDevBasics2025/task-k/)   
+[Task L](https://mortumm.dev/CentriaWebDevBasics2025/task-l/)
