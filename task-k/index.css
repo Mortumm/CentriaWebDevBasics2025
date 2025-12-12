@@ -83,6 +83,14 @@ img {
     background-color: #c0392b;
 }
 
+.btn-danger {
+    background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
 .section {
     padding: 80px 0;
 }
