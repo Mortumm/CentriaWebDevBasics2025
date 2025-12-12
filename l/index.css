@@ -83,6 +83,14 @@ img {
     background-color: #c0392b;
 }
 
+.btn-danger {
+    background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
 .section {
     padding: 80px 0;
 }
@@ -658,6 +666,10 @@ footer {
 .form-actions {
     text-align: right;
     margin-top: 30px;
+}
+
+.btn-danger {
+    background-color: var(--accent);
 }
 
 .thank-you-message {
